@@ -1,0 +1,15 @@
+# Sensitive Firebase files (DO NOT upload real keys)
+firebase.js
+config.js
+
+# Editor-specific files
+.vscode/
+
+# OS/system files
+.DS_Store
+Thumbs.db
+
+# Environment variable files (for future use)
+.env
+.env.local
+.env.production

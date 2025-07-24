@@ -85,3 +85,35 @@ MSc Computational Statistics and Data Analytics
 ## 📄 License
 
 This project is open-source for academic use. Commercial use requires permission.
+
+## ⚙️ How It Works
+
+This carpooling app connects drivers and riders using Firebase for real-time updates and Leaflet.js for location mapping.
+
+**Step-by-step flow:**
+
+1. **User Signup/Login**  
+   Authenticated via Firebase using email/password.
+
+2. **Booking a Ride**  
+   - Riders enter pickup, drop, date, time, and payment mode.  
+   - Distance and fare are calculated using Haversine formula.  
+   - Ride is stored in Firebase with a status: `pending`.
+
+3. **Matching Rides**  
+   - Riders can search for existing rides by pickup/drop.  
+   - Matching routes are shown dynamically.
+
+4. **Driver Dashboard**  
+   - Driver sees all pending requests.  
+   - Can Accept ✅ / Reject ❌ bookings.  
+   - If multiple riders match a route, fare is **split** among them.
+
+5. **Live Map Display**  
+   - All confirmed rides appear on a Leaflet.js map.  
+   - OpenStreetMap is used for rendering roads and calculating directions.
+
+6. **Realtime Sync**  
+   - Any updates (confirm/cancel/book) reflect instantly in the Firebase DB and UI.
+
+

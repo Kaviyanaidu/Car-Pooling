@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride Map</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #viewOnGoogleMaps {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+        }
+        #cancelRideBtn {
+            background: red;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>🚗 Available Rides</h2>
+    <p>Click the button below to view the ride route on Google Maps</p>
+    <button id="viewOnGoogleMaps">View on Google Maps</button>
+    <button id="cancelRideBtn">Cancel Ride</button>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, ref, onValue, remove } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+    
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAmx0...",
+            authDomain: "carpoolapp-21db6.firebaseapp.com",
+            databaseURL: "https://carpoolapp-21db6-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "carpoolapp-21db6",
+            storageBucket: "carpoolapp-21db6.appspot.com",
+            messagingSenderId: "838375357710",
+            appId: "1:838375357710:web:d13116bd474025d5c36b5f"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+    
+        // Fetch Ride Data
+        const ridesRef = ref(database, "rides");
+        onValue(ridesRef, (snapshot) => {
+            if (snapshot.exists()) {
+                const rideData = Object.values(snapshot.val())[0]; // Get first ride
+                if (rideData) {
+                    let pickup = encodeURIComponent(rideData.pickup);
+                    let drop = encodeURIComponent(rideData.drop);
+                    let googleMapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${pickup}&destination=${drop}`;
+                    
+                    document.getElementById("viewOnGoogleMaps").onclick = () => {
+                        window.open(googleMapsUrl, "_blank");
+                    };
+                }
+            }
+        });
+
+        // Cancel Ride Function
+        document.getElementById("cancelRideBtn").addEventListener("click", async () => {
+            onValue(ridesRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    const firstRideKey = Object.keys(snapshot.val())[0];
+                    const rideRef = ref(database, `rides/${firstRideKey}`);
+                    remove(rideRef).then(() => {
+                        alert("Ride canceled successfully!");
+                        location.reload();
+                    }).catch(error => console.error("❌ Error canceling ride:", error));
+                }
+            }, { onlyOnce: true });
+        });
+    </script>
+</body>
+</html>

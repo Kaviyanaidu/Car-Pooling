@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to Carpooling Dashboard</h1>
+    <p id="user-email"></p>
+    <button id="logout-btn">Login </button>
+
+    <script type="module">
+        import { app, auth } from "./firebase.js";  // ✅ Correct import
+
+        import { signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        // Check if user is logged in
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                document.getElementById("user-email").textContent = `Logged in as: ${user.email}`;
+            } else {
+                window.location.href = "index.html";
+            }
+        });
+
+        // Logout Function
+        document.getElementById("logout-btn").addEventListener("click", async () => {
+            try {
+                await signOut(auth);
+                localStorage.removeItem("user");
+                window.location.href = "index.html";
+            } catch (error) {
+                console.error("Logout failed:", error);
+                alert("Logout failed: " + error.message);
+            }
+        });
+
+
+        // Ensure the logout button exists before adding an event listener
+        document.addEventListener("DOMContentLoaded", () => {
+    const logoutButton = document.getElementById("logout-btn");
+
+    if (logoutButton) {
+        logoutButton.addEventListener("click", async () => {
+            console.log("Logout button clicked"); // Debug Step 1
+
+            try {
+                await signOut(auth);
+                console.log("User signed out"); // Debug Step 2
+
+                localStorage.removeItem("user"); // Clear session
+                
+                setTimeout(() => {
+                    console.log("Redirecting to index.html"); // Debug Step 3
+                    window.location.href = "http://127.0.0.1:5500/index.html";
+                }, 500);
+
+            } catch (error) {
+                alert("Logout failed: " + error.message);
+                console.error("Error:", error);
+            }
+        });
+    }
+});
+
+    </script>
+</body>
+</html>

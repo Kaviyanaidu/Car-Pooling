@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Rides</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+    <h2>🚗 My Booked Rides</h2>
+    <div id="ridesList"></div>
+
+    <hr>
+
+    <h2>🛣️ Ongoing Shared Rides Available</h2>
+    <form id="searchSharedRideForm">
+        <label for="pickup">Your Pickup Location:</label>
+        <input type="text" id="pickup" required>
+        <br><br>
+        <label for="drop">Your Drop Location:</label>
+        <input type="text" id="drop" required>
+        <br><br>
+        <button type="submit">🔍 Find Shared Rides</button>
+    </form>
+
+    <div id="shared-rides"></div>
+
+    <script type="module" src="available_rides.js"></script>
+</body>
+</html>

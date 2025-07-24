@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Ride</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <h2>Book a Ride</h2>
+    <form id="rideForm">
+        <label for="pickup">Pickup Location (City Name):</label><br>
+        <input type="text" id="pickup" name="pickup" required>
+
+        <label for="drop">Drop Location (City Name):</label><br>
+        <input type="text" id="drop" name="drop" required>
+
+        <label for="date">Date:</label><br>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Time:</label><br>
+        <input type="time" id="time" name="time" required>
+
+        <label for="payment">Payment Method:</label><br>
+        <select id="payment" name="payment" required>
+            <option value="">Select Payment</option>
+            <option value="Cash">Cash</option>
+            <option value="UPI">UPI</option>
+            <option value="Card">Card</option>
+        </select><br><br>
+
+        <button type="submit">Confirm Ride</button>
+    </form>
+
+    <div style="margin-top: 20px;">
+        <p><strong>Estimated Distance:</strong> <span id="distance">--</span></p>
+        <p><strong>Estimated Fare:</strong> <span id="estimated-fare">--</span></p>
+    </div>
+
+    <script type="module" src="ride_booking.js"></script>
+</body>
+</html>

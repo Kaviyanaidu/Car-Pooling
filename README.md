@@ -35,8 +35,8 @@ This repo uses `.gitignore` to protect sensitive files like `firebase.js` and `.
 
 ## 📄 Project Output
 
-👉 [Click here to view output with screenshots (PDF)]([Carpool_Project_Output.pdf](https://github.com/Kaviyanaidu/Car-Pooling/commit/0be5421f80026af60c4e47a72af7bd51eb0d248e))
- 
+👉 [Click here to view/download the output screenshots (PDF)](https://github.com/Kaviyanaidu/Car-Pooling/raw/0be5421f80026af60c4e47a72af7bd51eb0d248e/Carpool_Project_Output.pdf)
+
 
 ## 📁 Project Structure
 

@@ -21,11 +21,11 @@ This is a full-stack web application designed to promote sustainable urban mobil
 
 ## 🔧 How to Run This Project
 
-1. **Clone this repo** or [Download ZIP](https://github.com/your-username/your-repo-name/archive/refs/heads/main.zip)
+1. [Download ZIP](https://github.com/Kaviyanaidu/Car-Pooling.git)
 2. Replace dummy config file:
    - Rename `config_sample.js` ➝ `firebase.js`
    - Paste your own Firebase project config inside
-3. Open `index.html` or `login.html` in browser
+3. Open`login.html` in browser
 4. Explore login → booking → driver features
 
 ## 🔐 Security Note

@@ -33,10 +33,6 @@ This is a full-stack web application designed to promote sustainable urban mobil
 > **Never upload your real Firebase config publicly.**  
 This repo uses `.gitignore` to protect sensitive files like `firebase.js` and `.env`.
 
-## 📄 Project Output
-
-👉 [Click here to view/download the output screenshots (PDF)](https://github.com/Kaviyanaidu/Car-Pooling/raw/0be5421f80026af60c4e47a72af7bd51eb0d248e/Carpool_Project_Output.pdf)
-
 
 ## 📁 Project Structure
 

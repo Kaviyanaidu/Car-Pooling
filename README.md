@@ -36,25 +36,38 @@ This repo uses `.gitignore` to protect sensitive files like `firebase.js` and `.
 ## 📁 Project Structure
 
 carpool-web-app/
-│
+
+
 ├── login.html ← User login
 
 ├── signup.html ← New user registration
 
 ├── ride_booking.html ← Ride booking form
+
 ├── available_rides.html ← Show available rides
+
 ├── driver.html ← Driver actions
+
 ├── dashboard.html ← User dashboard
+
 ├── driver_dashboard.html ← Driver booking view
-│
+
 ├── firebase.js ← 🔒 Firebase config (ignored)
+
 ├── config_sample.js ← 🔓 Dummy Firebase sample
+
 ├── script.js ← Booking JS
+
 ├── driver.js ← Driver logic
+
 ├── ride_booking.js ← Booking actions
+
 ├── available_rides.js ← Ride listing logic
+
 ├── map.js ← Map rendering
+
 ├── style.css ← All styles
+
 └── .gitignore ← Git ignore rules
 
 ## 👩‍💻 Developed By

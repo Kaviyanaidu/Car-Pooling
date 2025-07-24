@@ -38,7 +38,9 @@ This repo uses `.gitignore` to protect sensitive files like `firebase.js` and `.
 carpool-web-app/
 │
 ├── login.html ← User login
+
 ├── signup.html ← New user registration
+
 ├── ride_booking.html ← Ride booking form
 ├── available_rides.html ← Show available rides
 ├── driver.html ← Driver actions
